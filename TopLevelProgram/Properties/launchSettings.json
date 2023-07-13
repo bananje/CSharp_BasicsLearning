@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TopLevelProgram": {
+      "commandName": "Project",
+      "commandLineArgs": "red yellow 50"
+    }
+  }
+}

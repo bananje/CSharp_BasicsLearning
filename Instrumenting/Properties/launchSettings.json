@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Instrumenting": {
+      "commandName": "Project"
+    },
+    "Профиль 1": {
+      "commandName": "Project"
+    }
+  }
+}
