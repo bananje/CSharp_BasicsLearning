@@ -82,5 +82,17 @@ namespace Chapter06
             if (Name is null) return 0;
             return Name.CompareTo(other?.Name);
         }
+
+        public void TimeTravel(DateTime when)
+        {
+            if (when <= DateOfBirth)
+            {
+                throw new PersonException("If you travel back in time to a date earlier than your own birth, then the universe will explode!"); // пользовательское исключение
+            }
+            else
+            {
+                WriteLine($"Welcome to {when:yyyy}!");
+            }
+        }
     }
 }

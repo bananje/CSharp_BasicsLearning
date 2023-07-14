@@ -75,6 +75,35 @@ internal class Program
             WriteLine($"{employee1} is not Employee");
         }
 
+
+        Person john = new();
+        john.DateOfBirth = new(1951, 12, 25); 
+
+        // Реализация выброса исключения
+        try
+        {
+            john.TimeTravel(when: new(1999, 12, 31));
+            john.TimeTravel(when: new(1950, 12, 25));
+        }
+        catch(PersonException ex)
+        {
+            WriteLine(ex.Message);
+        }
+        
+        string email1 = "pamela@test.com";
+        string email2 = "ian&test.com";
+
+        WriteLine("{0} is a valid e-mail address: {1}",
+         arg0: email1,
+         arg1: StringExtensions.IsValidEmail(email1));
+
+        WriteLine("{0} is a valid e-mail address: {1}",
+         arg0: email2,
+         arg1: email2.IsValidEmail());
+
+        String d = "fdf";
+        WriteLine(d);
+
     }  
 
     int Add(int a, int b) => a + b; 
