@@ -56,9 +56,9 @@ internal class Program
         cities.Remove("Milan");
         Output("After removing two cities", cities);
 
+        // неизменяемая коллекция
         ImmutableList<string> immutableCities = cities.ToImmutableList();
         ImmutableList<string> newList = immutableCities.Add("Rio");
-        immutableCities.Add("fdf");
         Output("Immutable list of cities:", immutableCities);
         Output("New list of cities:", newList);
     }

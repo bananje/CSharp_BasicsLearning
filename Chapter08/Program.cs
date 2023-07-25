@@ -3,6 +3,8 @@ using System.Numerics;
 using static System.Console;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Net;
+using System.Net.NetworkInformation;
 
 Console.WriteLine("Hello, World!");
 
@@ -141,3 +143,37 @@ foreach (Match film in filmsSmart)
 List<string> names = new();
 names.EnsureCapacity(10_000);
 // загружаем десять тысяч имен в список 
+
+// CЕТЕВЫЕ ПРОТОКОЛЫ
+
+string? url = @"https://stackoverflow.com/search?q=securestring";
+
+Uri uri = new(url); // Тип ссылка
+
+WriteLine($"{uri.Scheme} {uri.Port} {uri.Host}");
+
+// получение ip адресов 
+IPHostEntry entry = Dns.GetHostEntry(uri.Host);
+foreach (IPAddress address in entry.AddressList)
+{
+    WriteLine($"{address} ({address.AddressFamily})");
+}
+
+// пинг сайта
+try
+{
+    Ping ping = new();
+    WriteLine("Pinging server. Please wait...");
+    PingReply reply = ping.Send(uri.Host);
+    WriteLine($"{uri.Host} was pinged and replied: {reply.Status}.");
+    if (reply.Status == IPStatus.Success)
+    {
+        WriteLine("Reply from {0} took {1:N0}ms",
+        arg0: reply.Address,
+        arg1: reply.RoundtripTime);
+    }
+}
+catch (Exception ex)
+{
+    WriteLine($"{ex.GetType().ToString()} says {ex.Message}");
+}

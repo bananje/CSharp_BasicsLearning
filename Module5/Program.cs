@@ -8,7 +8,7 @@ internal class Program
 //    Свойства, доступные только для инициализации, обеспечивают некоторую неизменность C#. Вы можете развить эту концепцию с помощью записей. Они определяются
 //с помощью ключевого слова record вместо ключевого слова class. Это делает весь
 //объект неизменным, поэтому он работает как значение при сравнении
-    public record ImmutableVehicle
+    public  record ImmutableVehicle
     {
         public int Wheels { get; init; }
         public string? Color { get; init; }
@@ -117,6 +117,7 @@ internal class Program
             Wheels = 4
         };
 
+       
         ImmutableVehicle repaintedCar = car
                 with
         { Color = "Polymetal Grey Metallic" };
